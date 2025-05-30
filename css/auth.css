@@ -19,7 +19,7 @@
   width: 100%;
   padding: 0.75rem;
   margin-bottom: 1rem;
-  border: 1px solid #ddd;
+  border: 1px solid #061ed7;
   border-radius: 5px;
   font-size: 1rem;
 }
@@ -27,7 +27,7 @@
 .auth-container input:focus {
   outline: none;
   border-color: var(--primary);
-  box-shadow: 0 0 0 2px rgba(13, 110, 253, 0.25);
+  box-shadow: 0 0 0 2px rgb(39, 1, 188);
 }
 
 /* Botão de Ação */
