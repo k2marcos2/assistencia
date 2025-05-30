@@ -1,12 +1,78 @@
+/* Estilos Gerais */
+:root {
+  --primary: #0d6efd;       /* Azul Bootstrap (padrão) */
+  --primary-dark: #0b5ed7;  /* Azul mais escuro */
+  --light: #f8f9fa;         /* Cor de fundo clara */
+  --dark: #212529;          /* Cor de texto escuro */
+  --white: #ffffff;
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--dark);
+  background-color: var(--light);
+  line-height: 1.6;
+}
+
+/* Navbar */
+.navbar {
+  box-shadow: var(--shadow);
+}
+
+.navbar-brand {
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+/* Botões */
+.btn-primary {
+  background-color: var(--primary);
+  border: none;
+  transition: all 0.3s;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-dark);
+  transform: translateY(-2px);
+}
+
+/* Cards de Serviços (index.html) */
+.card {
+  border: none;
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+  transition: transform 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+/* WhatsApp Flutuante */
 .whatsapp {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background: #25D366;
+  background-color: #25D366;
   color: white;
-  font-size: 24px;
-  padding: 15px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  box-shadow: var(--shadow);
   text-decoration: none;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s;
+}
+
+.whatsapp:hover {
+  transform: scale(1.1);
+}
+
+/* Footer */
+footer {
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
 }

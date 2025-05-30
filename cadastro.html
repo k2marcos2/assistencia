@@ -6,13 +6,17 @@
   <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
   <script src="firebase-config.js"></script>
+  <link rel="stylesheet" href="css/auth.css">
+
 </head>
 <body>
-  <h2>Cadastro</h2>
-  <input type="email" id="email" placeholder="Email" />
-  <input type="password" id="senha" placeholder="Senha" />
-  <button onclick="cadastrar()">Cadastrar</button>
-  <p>Já tem conta? <a href="login.html">Entrar</a></p>
+  <div class="auth-container">
+    <h2>Cadastro</h2>
+    <input type="email" id="email" placeholder="Email" />
+    <input type="password" id="senha" placeholder="Senha" />
+    <button onclick="cadastrar()">Cadastrar</button>
+    <p>Já tem conta? <a href="login.html">Entrar</a></p>
+  </div>
 
   <script src="js/auth.js"></script>
 </body>
