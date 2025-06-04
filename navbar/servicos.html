@@ -1,4 +1,4 @@
-<!-- servicos.html -->
+<!-- servicos.html (corrigido para mensagem automática no WhatsApp com base na seleção) -->
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -30,25 +30,30 @@
   <!-- Seção de Serviços com Checklist -->
   <section class="container py-5">
     <h1 class="mb-4">Selecione os serviços desejados</h1>
-    <form>
+    <form id="servicos-form">
       <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="serv2">
+        <input class="form-check-input" type="checkbox" id="selectAll">
+        <label class="form-check-label" for="selectAll">Selecionar todos</label>
+      </div>
+
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="Formatação e limpeza de computadores - R$ 100,00" id="serv2">
         <label class="form-check-label" for="serv2">Formatação e limpeza de computadores</label>
       </div>
       <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="serv3">
+        <input class="form-check-input" type="checkbox" value="Troca de peças e upgrades - R$ 150,00" id="serv3">
         <label class="form-check-label" for="serv3">Troca de peças e upgrades</label>
       </div>
       <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="serv4">
+        <input class="form-check-input" type="checkbox" value="Configuração de redes e impressoras - R$ 120,00" id="serv4">
         <label class="form-check-label" for="serv4">Configuração de redes e impressoras</label>
       </div>
       <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="serv5">
-        <label class="form-check-label" for="serv5">Atendimento a domicílio</label>
+        <input class="form-check-input" type="checkbox" value="Atendimento a domícilio - R$ 80,00" id="serv5">
+        <label class="form-check-label" for="serv5">Atendimento a domícilio</label>
       </div>
 
-      <button type="submit" class="btn btn-primary mt-3">Solicitar Orçamento</button>
+      <button type="button" class="btn btn-primary mt-3" id="solicitarBtn">Solicitar Orçamento</button>
     </form>
   </section>
 
@@ -57,5 +62,33 @@
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    document.getElementById('selectAll').addEventListener('change', function () {
+      const checkboxes = document.querySelectorAll('#servicos-form .form-check-input:not(#selectAll)');
+      checkboxes.forEach(cb => cb.checked = this.checked);
+    });
+
+    document.getElementById('solicitarBtn').addEventListener('click', function () {
+      const checkboxes = document.querySelectorAll('#servicos-form .form-check-input:not(#selectAll)');
+      const servicosSelecionados = [];
+
+      checkboxes.forEach(cb => {
+        if (cb.checked) {
+          servicosSelecionados.push(cb.value);
+        }
+      });
+
+      if (servicosSelecionados.length === 0) {
+        alert('Por favor, selecione ao menos um serviço.');
+        return;
+      }
+
+      const mensagem = `Olá, gostaria de solicitar um orçamento para os seguintes serviços:%0A- ` + servicosSelecionados.join('%0A- ');
+      const numero = '5563991370808'; // Substitua pelo seu número com DDI
+      const link = `https://wa.me/${numero}?text=${mensagem}`;
+
+      window.open(link, '_blank');
+    });
+  </script>
 </body>
 </html>
