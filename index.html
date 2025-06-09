@@ -229,5 +229,33 @@
       }
     });
   </script>
+
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+  <script src="../firebase-config.js"></script>
+
+  <script>
+    firebase.auth().onAuthStateChanged((user) => {
+      const authLink = document.getElementById('authLink');
+      const authText = document.getElementById('authText');
+      const authIcon = document.getElementById('authIcon');
+
+      if (user) {
+        authText.textContent = 'Sair';
+        authIcon.className = 'fas fa-sign-out-alt me-1';
+        authLink.href = '#';
+        authLink.onclick = () => {
+          firebase.auth().signOut().then(() => {
+            window.location.href = '../index.html';
+          });
+        };
+      } else {
+        authText.textContent = 'Login';
+        authIcon.className = 'fas fa-user me-1';
+        authLink.href = 'login.html';
+        authLink.onclick = null;
+      }
+    });
+  </script>
 </body>
 </html>
